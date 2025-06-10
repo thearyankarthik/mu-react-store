@@ -1,16 +1,17 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
-import Login from './Login.jsx'
-import Register from './Register.jsx'
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { registerSW } from 'virtual:pwa-register';
 
-createRoot(document.getElementById('root')).render(
-  <>
-        
-        <App />
-        
+const updateSW = registerSW({
+  onNeedRefresh() {
+    if (confirm("New content available. Reload?")) {
+      updateSW(true);
+    }
+  },
+  onOfflineReady() {
+    console.log("App is ready to work offline.");
+  }
+});
 
-  </>
-)
+createRoot(document.getElementById("root")).render(<App />);
