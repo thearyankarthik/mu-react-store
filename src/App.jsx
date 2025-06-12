@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Login from "./Login";
 import Cart from "./Cart";
 import Logout from "./Logout";
+import Order from "./Order";
 import Register from "./Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
